@@ -1,0 +1,127 @@
+ // GitHub: Thyagonok
+//-------------------------------------------Atividade de Produção--------------------------------------------------
+// Calculadora feita em linguagem C com o objetivo de realizar cálculos matemáticos em operações de adição, subtração, divisão, multiplicação, raiz quadrada e potênciação de maneira prática e objetiva. Realizado pelo aluno da universidade LaSalle Thyago da Silva Pinho com seus conhecimentos adquiridos ao longo do curso de Análise e Desenvolvimento de Sistemas.
+//------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+  int  operacao ;//numero das operações possiveis.
+  float num1, num2, resultado;//declaração das variavéis.
+  
+//------------------------- Exibir no console o cabeçalho do programa.----------------------------------------------
+  printf("Nome: Thyago da Silva Pinho. \n");
+  printf("Curso: Análise e Desenvolvimento de Sistemas. \n");
+  printf("Universidade: LaSalle Canoas. \n");
+  printf("Número de matrícula: 202210054. \n \n \n");
+  printf("Calculadora em linguagem C.\n \n");
+//------------------------- Ponto de inicio do loop.----------------------------------------------------------------
+  inicio_do_loop :
+
+// ------------------------ Escrita das possiveis alternativas de operação.-----------------------------------------
+  printf("\nSelecione a operação que deseja fazer:\n");
+  printf("1. Adição\n2. Subtração\n3. Divisão\n4. Multiplicação\n5. Raiz quadrada\n6. Potência.\n7. Sair\n\n");
+  scanf("%d", &operacao);
+// ------------------------ Limitador de opções de operação.--------------------------------------------------------
+  if(operacao > 7 || operacao < 1)//se o número for menor que 1 ou maior que 6 será invalido.
+    {
+    printf("operação inválida \n");
+    goto inicio_do_loop ; // envia para inicio do loop.-------------------------------------------------------------
+    }
+  
+  if (operacao == 1) //se a operação escolhida for a de adição, o usuário digitará o digito 1.----------------------
+    {
+    printf("digite o 1° número: ");
+    scanf("\n%f", &num1);
+    printf("digite o 2° número: ");
+    scanf("\n%f", &num2);
+      
+    resultado = num1+num2;
+    printf("Adição: %0.2f\n", resultado);
+
+    goto inicio_do_loop;
+    }
+  
+   if (operacao == 2) //se a operação escolhida for a de subtração, o usuário digitará o digito 2.------------------
+    {
+    printf("digite o 1° número: ");
+    scanf("\n%f", &num1);
+    printf("digite o 2° número: ");
+    scanf("\n%f", &num2);
+
+    resultado = num1-num2;
+    printf("Subtração: %0.2f\n", resultado);
+
+    goto inicio_do_loop;
+    }
+  
+  if (operacao == 3) // se a operação escolhida for a de divisão, o usuário digitará o digito 3.--------------------
+    {
+    inicio_operacao: //loop de inicio da operação 3.----------------------------------------------------------------
+    printf("digite o 1° número: ");
+    scanf("\n%f", &num1);
+    printf("digite o 2° número: ");
+    scanf("\n%f", &num2);
+      
+  if(num1<=0||num2<=0) // verifica se os números são menores ou iguais a zero.--------------------------------------
+    {
+      printf("Não é possível dividir por zero ou números negativos\n");
+      goto inicio_operacao; // envia para o inicio do loop da operação 3.-------------------------------------------
+    }
+    resultado = num1/num2;
+    printf("Divisão: %0.2f\n", resultado);
+
+    goto inicio_do_loop;
+    }
+  
+  if (operacao == 4) // se a operação escolhida for a de multiplicação, o usuário digitará o digito 4.--------------
+    {
+    printf("digite o 1° número: ");
+    scanf("\n%f", &num1);
+    printf("digite o 2° número: ");
+    scanf("\n%f", &num2);
+
+    resultado = num1*num2;
+    printf("Multiplicação: %0.2f\n", resultado);
+
+    goto inicio_do_loop;
+    }
+
+  if (operacao == 5) // se a operação escolhida for a de raiz quadrada, o usuário digitará o digito 5.--------------
+    {
+    inicio_raiz:
+    printf("digite o 1° número: ");
+    scanf("\n%f", &num1);
+
+    if(num1<0) // caso o numero seja negativo exibirá a mensagem de erro.-------------------------------------------
+    {
+    printf("Não existe Raiz de números negativos.\n");
+    goto inicio_raiz;
+    }
+  
+    resultado = sqrt(num1);
+    printf("Raiz: %0.2f\n", resultado);
+
+    goto inicio_do_loop;
+    }
+
+  if (operacao == 6) // se a operação escolhida for a de potência, o usuário digitará o digito 6.-------------------
+    {      
+    printf("digite o 1° número: ");
+    scanf("\n%f", &num1);
+    printf("escolha a potencia a ser elevada: ");
+    scanf("\n%f", &num2);
+      
+    resultado = pow(num1,num2);
+    printf("Potencia: %0.2f\n", resultado);
+      
+    goto inicio_do_loop;
+    }
+
+if (operacao == 7) // se desejar finalizar a operação, o usuário digitará 7.----------------------------------------
+    {      
+    printf("Operação finalizada");
+    }
+}
